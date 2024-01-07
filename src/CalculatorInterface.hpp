@@ -4,11 +4,11 @@ class CalculatorIntreface {
 public:
     virtual ~CalculatorIntreface() = default;
 
-    virtual double add(const double &a, const double &b) = 0;
-    virtual double sub(const double &a, const double &b) = 0;
-    virtual double mul(const double &a, const double &b) = 0;
-    virtual double div(const double &a, const double &b) = 0;
+    virtual long double add(const long double &a, const long double &b) = 0;
+    virtual long double sub(const long double &a, const long double &b) = 0;
+    virtual long double mul(const long double &a, const long double &b) = 0;
+    virtual long double div(const long double &a, const long double &b) = 0;
 
-    virtual double getLastResult() const = 0;
+    virtual long double getLastResult() const = 0;
     virtual void resetLastResult() = 0;
 };

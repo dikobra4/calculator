@@ -4,12 +4,13 @@
 
 
 // Max value calculation error when comparing floating point numbers
-double MAX_DELTA = 0.0001;
+double MAX_DELTA = 0.000001;
 
 /**
  * Test suite for add Calculator::add
 */
-class CalculatorAddTest : public testing::TestWithParam<std::tuple<double, double, double>> {};
+class CalculatorAddTest
+    : public testing::TestWithParam<std::tuple<long double, long double, long double>> {};
 INSTANTIATE_TEST_SUITE_P(
     Default, CalculatorAddTest,
     testing::Values(
@@ -30,7 +31,7 @@ INSTANTIATE_TEST_SUITE_P(
 );
 TEST_P(CalculatorAddTest, CalculatorAddsNumbers) {
     Calculator calc;
-    double a, b, expected;
+    long double a, b, expected;
     std::tie(a, b, expected) = GetParam();
     EXPECT_NEAR(calc.add(a, b), expected, MAX_DELTA);
 }
@@ -38,7 +39,8 @@ TEST_P(CalculatorAddTest, CalculatorAddsNumbers) {
 /**
  * Test suite for substract Calculator::sub
 */ 
-class CalculatorSubTest : public testing::TestWithParam<std::tuple<double, double, double>> {};
+class CalculatorSubTest 
+    : public testing::TestWithParam<std::tuple<long double, long double, long double>> {};
 INSTANTIATE_TEST_SUITE_P(Default, CalculatorSubTest, testing::Values(
     std::make_tuple(3, 2, 1),
     std::make_tuple(-3, -2, -1),
@@ -56,7 +58,7 @@ INSTANTIATE_TEST_SUITE_P(Default, CalculatorSubTest, testing::Values(
 ));
 TEST_P(CalculatorSubTest, SubtractsNumbers) {
     Calculator calc;
-    double a, b, expected;
+    long double a, b, expected;
     std::tie(a, b, expected) = GetParam();
     EXPECT_NEAR(calc.sub(a, b), expected, MAX_DELTA);
 }
@@ -65,7 +67,8 @@ TEST_P(CalculatorSubTest, SubtractsNumbers) {
 /**
  * Test suite for multiply Calculator::mul
 */
-class CalculatorMulTest : public testing::TestWithParam<std::tuple<double, double, double>> {};
+class CalculatorMulTest 
+    : public testing::TestWithParam<std::tuple<long double, long double, long double>> {};
 INSTANTIATE_TEST_SUITE_P(Default, CalculatorMulTest, testing::Values(
     std::make_tuple(3, 2, 6),
     std::make_tuple(-3, -2, 6),
@@ -82,7 +85,7 @@ INSTANTIATE_TEST_SUITE_P(Default, CalculatorMulTest, testing::Values(
 ));
 TEST_P(CalculatorMulTest, MultipliesNumbers) {
     Calculator calc;
-    double a, b, expected;
+    long double a, b, expected;
     std::tie(a, b, expected) = GetParam();
     EXPECT_NEAR(calc.mul(a, b), expected, MAX_DELTA);
 }
@@ -90,7 +93,8 @@ TEST_P(CalculatorMulTest, MultipliesNumbers) {
 /**
  * Test suite for divide Calculator::div
 */
-class CalculatorDivTest : public testing::TestWithParam<std::tuple<double, double, double>> {};
+class CalculatorDivTest 
+    : public testing::TestWithParam<std::tuple<long double, long double, long double>> {};
 INSTANTIATE_TEST_SUITE_P(Default, CalculatorDivTest, testing::Values(
     std::make_tuple(4, 2, 2),
     std::make_tuple(-6, -3, 2),
@@ -104,7 +108,7 @@ INSTANTIATE_TEST_SUITE_P(Default, CalculatorDivTest, testing::Values(
 ));
 TEST_P(CalculatorDivTest, DividesNumbers) {
     Calculator calc;
-    double a, b, expected;
+    long double a, b, expected;
     std::tie(a, b, expected) = GetParam();
     if (b == 0) {
         EXPECT_THROW(calc.div(a, b), DivizionByZeroException);

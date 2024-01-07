@@ -39,11 +39,11 @@ private:
 
     // Parsed command arguments
     std::string _command;
-    double _num1;
-    double _num2;
+    long double _num1;
+    long double _num2;
     
     // Result arguments
-    double _result;
+    long double _result;
     std::string _resultString;
     std::string _error;
     
@@ -85,7 +85,7 @@ public:
     virtual ~CliCommandHandler() = default;
     
     // Getters
-    double getResult();
+    long double getResult();
     std::string getResultString();
     std::string getError();
     

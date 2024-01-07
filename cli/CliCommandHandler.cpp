@@ -36,8 +36,8 @@ void CliCommandHandler::_parseOperationCommand(std::vector<std::string> &tokens)
     _command = tokens[0];
     spdlog::debug("{} recognized as operation command", _command);
     try {
-    _num1 = std::stod(tokens[1]);
-    _num2 = std::stod(tokens[2]); 
+    _num1 = std::stold(tokens[1]);
+    _num2 = std::stold(tokens[2]); 
     spdlog::debug("Arguments: {}, {}", _num1, _num2);
     } catch (const std::invalid_argument &e) {
         _error = "Invalid argument: " + std::string(e.what());
@@ -85,7 +85,7 @@ void CliCommandHandler::_performOperation() {
     }
 }
 
-double CliCommandHandler::getResult() {
+long double CliCommandHandler::getResult() {
     return _result;
 }
 
